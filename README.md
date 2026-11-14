@@ -90,4 +90,4 @@ It needs Linux or WSL with Java 17, Maven, PostgreSQL 14, Tomcat 10.1 and Python
 
 <br><br>
 
-Empower your voice! Unleash your potential!
+<p align="center"><em>Empower your voice! Unleash your potential!</em></p>
