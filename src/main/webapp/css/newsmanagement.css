@@ -1,0 +1,53 @@
+
+.news-wrapper{
+    position: relative;
+    display: grid;
+    grid-template-columns: 55% 45%;
+}
+
+.news-overview{
+    margin-top:60px;
+    border-radius: 10px;
+    height: 606px;
+    width: 95%;
+    background-color: white;
+    place-self: center;
+}
+
+.news-overview-title, .news-add-article-title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.news-overview-title{
+    margin-top: 20px;
+}
+
+.newsManageGrid {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "navigation"
+    "title"
+    "main";
+    grid-template-rows: 30px 50px 1fr;
+}
+
+.navbarWindow {
+    grid-area: navigation
+}
+
+.newsManageTitle {
+    grid-area: title;
+    text-align: center;
+    font-size: 25px;
+}
+
+.newsManagePanel {
+    grid-area: main;
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

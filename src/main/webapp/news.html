@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/navigationpanel.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <script src="lib/userData.js"></script>
+    <script src="lib/news.js"></script>
+    <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+    <script>$(function(){
+        $("#navigationBar").load("navigationpanel.html")
+        $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+    })</script>
+</head>
+
+<body onload="currentUserName()">
+
+<div class="newsPageGrid">
+    <div class="navbarWindow">
+        <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+        </nav>
+    </div>
+
+    <div id="mobileNavigationBar"></div>
+
+    <div class="pageTitle">
+        <label class="form-label fw-bold">News and Announcements</label>
+    </div>
+
+    <div class="newsWrapper" id="newsWrapper">
+        <script> loopNews() </script>
+    </div>
+</div>
+</body>
+
+</html>

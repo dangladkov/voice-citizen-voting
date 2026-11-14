@@ -1,0 +1,68 @@
+.submit-benefit {
+    margin-top: 30px;
+    border-radius: 10px;
+    height: 100%;
+    width: 95%;
+    background-color: white;
+    place-self: center;
+}
+
+.submit-header {
+    text-align: center;
+    font-size: 30px;
+}
+
+.shop-management {
+    position: relative;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    margin-top: 50px;
+}
+
+.benefit-content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.nav-pills{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+}
+
+.benefit-overview{
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 98.5%;
+    width: 95%;
+    background-color: white;
+    place-self: center;
+}
+
+.overview-header, .submit-header{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.size-input{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.add-button button{
+    position: absolute;
+    bottom: -5px;
+    right: 20px;
+}
+
+.d-grid{
+    margin-top: 20px;
+}

@@ -1,0 +1,126 @@
+.main{
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "navigation navigation"
+    "images info";
+    grid-template-rows: 70px 1fr;
+    grid-template-columns: 48% 48%;
+    column-gap: 20px;
+}
+
+.navbarWindow {
+    grid-area: navigation;
+}
+
+.item-information{
+    grid-area: info;
+    /*top: 60px;*/
+}
+
+.item-title{
+    font-size: 30px;
+}
+
+.carousel-item{
+    background: dimgray;
+    height: 30rem;
+
+}
+
+.left-side{
+    grid-area: images;
+    /*display: block;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-inner{
+    width: 30rem;
+    height: 30rem;
+}
+
+.overlay-image{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+.btn.btn-secondary.btn-lg.btn-block {
+    margin-bottom: 120px;
+    width: 98%;
+}
+
+/*.dropdown{*/
+/*    margin-bottom: 100px;*/
+/*}*/
+
+.btn.btn-secondary.btn-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-purple {
+    background-color: purple;
+    --bs-btn-hover-bg: #a101a1;
+    --bs-btn-active-bg: #a101a1;
+    --bs-btn-active-border-color: transparent;
+}
+.carousel {
+    width: 30rem;
+    height: 30rem;
+}
+
+@media (max-width: 1000px) {
+    .main {
+        grid-template-areas:
+        "navigation"
+        "images"
+        "info";
+        grid-template-rows: 70px 500px auto;
+        grid-template-columns: 100%;
+        column-gap: 0;
+    }
+    .item-information {
+        padding: 80px;
+    }
+}
+
+/* Phone resize */
+@media screen and (max-width: 800px) {
+    .item-information {
+        padding: 20px;
+    }
+    .carousel, .carousel-inner {
+        width: 100vw;
+    }
+}
+
+
+.btn-pink {
+    background-color: pink;
+    --bs-btn-hover-bg: #deabb3;
+    --bs-btn-active-bg: #deabb3;
+    --bs-btn-active-border-color: transparent;
+}
+
+.btn-orange {
+    background-color: orange;
+    --bs-btn-hover-bg: #da8f03;
+    --bs-btn-active-bg: #da8f03;
+    --bs-btn-active-border-color: transparent;
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="css/projectdashboard.css">
+    <link rel="stylesheet" href="css/navigationpanel.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+    <script src="lib/projectdashboard.js"></script>
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <script src="lib/userData.js"></script>
+    <script src = "webjars/chart.js/4.3.0/dist/chart.umd.js"></script>
+    <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+    <script>$(function(){
+        $("#navigationBar").load("navigationpanel.html")
+        $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+    })</script>
+
+</head>
+<body onload="currentUserName(); loadGraph()">
+
+<div class="navbarWindow">
+    <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+    </nav>
+</div>
+
+<div class = "page-content-wrapper shadow">
+    <div class = "page-title fw-bold">Project dashboard: title project</div>
+    <div class="chartBox">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+</body>
+</html>

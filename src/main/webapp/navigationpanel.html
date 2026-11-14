@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<div class="container-fluid justify-content-center">
+
+    <!--            NORMAL NAVBAR -->
+    <ul class="mainNavbar navbar-nav">
+        <li class="mobileNavbarItem nav-item">
+            <!--            MOBILE NAVBAR BUTTON -->
+            <button class="mobileNavbarButton btn btn-voice-navbar" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbar">
+                MENU
+            </button>
+        </li>
+        <!--            HOME BUTTON -->
+        <li class="mainNavbarItem nav-item">
+            <a class="nav-link" style="padding-right: 0;"><i class="fa-solid fa-house"></i></a>
+        </li>
+        <li class="mainNavbarItem nav-item" style="padding-right: 50px;">
+            <a class="nav-link active" href="index.html">Home</a>
+        </li>
+
+        <!--            SUBMIT IDEA BUTTON -->
+        <li class="mainNavbarItem nav-item">
+            <a class="nav-link" style="padding-right: 0;"><i class="fa-solid fa-lightbulb"></i></a>
+        </li>
+        <li class="mainNavbarItem nav-item" style="padding-right: 50px;">
+            <a class="nav-link" href="submitidea.html">Propose</a>
+        </li>
+
+        <!--            NEWS BUTTON -->
+        <li class="mainNavbarItem nav-item">
+            <a class="nav-link" style="padding-right: 0;"><i class="fa-solid fa-newspaper"></i></a>
+        </li>
+        <li class="mainNavbarItem nav-item" style="padding-right: 50px;">
+            <a class="nav-link" href="news.html">News</a>
+        </li>
+
+        <!--            LEADERBOARD BUTTON -->
+        <li class="mainNavbarItem nav-item">
+            <a class="nav-link" style="padding-right: 0;"><i class="fa-solid fa-ranking-star"></i></a>
+        </li>
+        <li class="mainNavbarItem nav-item" style="padding-right: 50px;">
+            <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+        </li>
+
+        <!--            SHOP BUTTON -->
+        <li class="mainNavbarItem nav-item">
+            <a class="nav-link" style="padding-right: 0;"><i class="fa-solid fa-bag-shopping"></i></a>
+        </li>
+        <li class="mainNavbarItem nav-item" style="padding-right: 50px;">
+            <a class="nav-link" href="shop.html">Shop</a>
+        </li>
+    </ul>
+
+    <!--            USER NAVBAR -->
+    <ul class="navbar-nav ms-auto  d-lg-inline-flex">
+
+        <!--            ADMIN BUTTON -->
+        <div class="adminDropdown">
+            <li class="nav-item dropdown" style="padding-right: 50px;">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Admin
+                </a>
+                <ul class="navbarDropdown dropdown-menu shadow-sm" aria-labelledby="navbarDropdown">
+                    <li><a class="navbarDropdownItem dropdown-item" href="overviewprojectidea.html">
+                        <i class="fa-solid fa-list"></i>
+                        <span style="padding-left: 10px;">Manage projects and ideas</span>
+                    </a></li>
+                    <li><a class="navbarDropdownItem dropdown-item" href="shopmanagement.html">
+                        <i class="fa-solid fa-store"></i>
+                        <span style="padding-left: 9px;">Manage shop</span>
+                    </a></li>
+                    <li><a class="navbarDropdownItem dropdown-item" href="newsmanagement.html">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <span style="padding-left: 10px;">Manage news</span>
+                    </a></li>
+                    <li><a class="navbarDropdownItem dropdown-item" href="usermanagement.html">
+                        <i class="fa-solid fa-users"></i>
+                        <span style="padding-left: 6px;">Manage users</span>
+                    </a></li>
+
+                </ul>
+            </li>
+        </div>
+
+        <!--            POINTS LABEL -->
+        <li class="nav-item">
+            <a class="nav-link" style="padding-right: 0;"><i class="fa-solid fa-coins"></i></a>
+        </li>
+        <li class="nav-item">
+            <div class="row">
+                <div class="pointsCol col">
+                    <a class="nav-link" id="points">000</a>
+                </div>
+                <div class="pointsLabelCol col" style="padding-left: 0; padding-right: 50px;">
+                    <a class="nav-link" style="padding-left: 0;">Points</a>
+                </div>
+            </div>
+        </li>
+
+        <!--            USER ACCOUNT BUTTON -->
+        <li class="nav-item">
+            <a class="nav-link" style="padding-right: 0;"><i class="fa-solid fa-user"></i></a>
+        </li>
+        <li class="nav-item usernameLabelCompact" style="padding-right: 20px;">
+            <a class="nav-link" href="useraccount.html" id="usernameCompact"></a>
+        </li>
+        <li class="nav-item dropdown usernameLabel" style="padding-right: 20px;">
+            <a class="userDropdown nav-link dropdown-toggle" id="username" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+            </a>
+            <ul class="navbarDropdown dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="navbarDropdown">
+                <li><a class="navbarDropdownItem dropdown-item" href="useraccount.html">
+                    <i class="fa-solid fa-gear"></i>
+                    <span style="padding-left: 10px;">My account</span>
+                </a></li>
+                <li><a class="navbarDropdownItem dropdown-item" href="#">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span style="padding-left: 9px;">Log out</span>
+                </a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</html>

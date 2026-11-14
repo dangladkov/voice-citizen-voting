@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Voice Platform</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/leaderboard.css">
+        <link rel="stylesheet" href="css/navigationpanel.css">
+        <link rel="stylesheet" href="css/voiceelement.css">
+        <script src="webjars/jquery/3.6.4/jquery.js"></script>
+        <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+        <script src="lib/hashing.js"></script>
+    <!--    <script src="lib/signup.js"></script>-->
+        <script src="lib/userData.js"></script>
+        <script src="lib/cookienator.js"></script>
+        <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+        <script src= "lib/leaderboard.js" ></script>
+        <script>$(function(){
+            $("#navigationBar").load("navigationpanel.html")
+            $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+        })</script>
+
+    </head>
+
+    <body onload="currentUserName(); getLeaderboard()">
+        <div class="leadPage">
+            <div class="navbarWindow">
+                <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+                </nav>
+            </div>
+
+            <div id="mobileNavigationBar"></div>
+
+            <div class="leadWindow rounded-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+                <div class="leadTable">
+                    <div class="leadTableTitle">
+                        <label class="form-label fw-bold" style="font-size: 30px">Leaderboard</label>
+                    </div>
+
+                    <!--User 1 row-->
+                    <div class="goldIcon table-group-divider table-primary">
+                        <span class="circleIcon" style="background-color: gold"></span>
+                    </div>
+                    <div class="user1 table-group-divider table-primary">
+                        <label class="form-label" id="person1nameLabel">Sergey Zevich</label>
+                    </div>
+                    <div class="user1Score table-group-divider table-primary">
+                        <label class="form-label" id="scoreLabelUser1">1230</label>
+                    </div>
+
+                    <!--User 2 row-->
+                    <div class="silverIcon">
+                        <span class="circleIcon" style="background-color: silver"></span>
+                    </div>
+                    <div class="user2">
+                        <label class="form-label" id="person2nameLabel">John Smith</label>
+                    </div>
+                    <div class="user2Score">
+                        <label class="form-label" id="scoreLabelUser2">1100</label>
+                    </div>
+
+                    <!--User 3 row-->
+                    <div class="bronzeIcon">
+                        <span class="circleIcon" style="background-color: chocolate"></span>
+                    </div>
+                    <div class="user3">
+                        <label class="form-label" id="person3nameLabel">Peter Black</label>
+                    </div>
+                    <div class="user3Score">
+                        <label class="form-label" id="scoreLabelUser3">1093</label>
+                    </div>
+
+                    <!--User 4 row-->
+                    <div class="user4">
+                        <label class="form-label" id="person4nameLabel">Person Four</label>
+                    </div>
+                    <div class="user4Score">
+                        <label class="form-label" id="scoreLabelUser4">score</label>
+                    </div>
+
+                    <!--User 5 row-->
+                    <div class="user5">
+                        <label class="form-label" id="person5nameLabel">Person Five</label>
+                    </div>
+                    <div class="user5Score">
+                        <label class="form-label" id="scoreLabelUser5">score</label>
+                    </div>
+
+                    <!--User 6 row-->
+                    <div class="user6">
+                        <label class="form-label" id="person6nameLabel">Person Six</label>
+                    </div>
+                    <div class="user6Score">
+                        <label class="form-label" id="scoreLabelUser6">score</label>
+                    </div>
+
+                    <!--User 7 row-->
+                    <div class="user7">
+                        <label class="form-label" id="person7nameLabel">Person Seven</label>
+                    </div>
+                    <div class="user7Score">
+                        <label class="form-label" id="scoreLabelUser7">score</label>
+                    </div>
+
+                    <!--User 8 row-->
+                    <div class="user8">
+                        <label class="form-label" id="person8nameLabel">Person Eight</label>
+                    </div>
+                    <div class="user8Score">
+                        <label class="form-label" id="scoreLabelUser8">score</label>
+                    </div>
+
+                    <!--User 9 row-->
+                    <div class="user9">
+                        <label class="form-label" id="person9nameLabel">Person Nine</label>
+                    </div>
+                    <div class="user9Score">
+                        <label class="form-label" id="scoreLabelUser9">score</label>
+                    </div>
+
+                    <!--User 10 row-->
+                    <div class="user10">
+                        <label class="form-label" id="person10nameLabel">Person Ten</label>
+                    </div>
+                    <div class="user10Score">
+                        <label class="form-label" id="scoreLabelUser10">score</label>
+                    </div>
+
+                    <!--Current user row-->
+                    <div class="thisUserBackground rounded-pill shadow-sm" style="background-color: #ffd0a0" ></div>
+                    <div class="thisUserIcon"></div>
+                    <div class="thisUser">
+                        <label class="form-label fw-bold" id="currentUserNameLabel">K</label>
+                    </div>
+                    <div class="thisUserScore">
+                        <label class="form-label fw-bold" id="currentUserScoreLabel">0</label>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>

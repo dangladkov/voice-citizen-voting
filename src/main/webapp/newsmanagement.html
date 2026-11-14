@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="css/newsmanagement.css">
+    <link rel="stylesheet" href="css/navigationpanel.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script src="lib/userData.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <script src="lib/news.js"></script>
+    <script src="lib/newsmanagement.js"></script>
+    <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+    <script>$(function(){
+        $("#navigationBar").load("navigationpanel.html")
+        $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+    })</script>
+</head>
+<body onload="currentUserName()">
+
+<div class = "news-wrapper">
+
+    <div class="newsManageGrid">
+        <div class="navbarWindow">
+            <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+            </nav>
+        </div>
+
+    <div id="mobileNavigationBar"></div>
+
+    <div class="newsManageTitle">
+        <label class="form-label fw-bold">News management</label>
+    </div>
+
+        <div class="newsManagePanel shadow rounded-2" style="margin-bottom: 20px">
+            <form onsubmit="">
+                <div class="news-add-article-title">
+                    <label class="form-label fw-bold" id="pageTitle">Add news article</label>
+                </div>
+
+                <label for="titleLabel" class="form-label">News title</label><br>
+                <input class="labelFit form-control" id="titleLabel" type="text" maxlength="100" placeholder="An interesting title..." required/>
+                <div id="projectTitleHelp" class="form-text">
+                    Max. 100 characters
+                </div>
+                <br>
+
+                <label for="descriptionLabel" class="form-label">News description</label><br>
+                <textarea rows="5" style="resize: none;" class="descriptionField form-control" id="descriptionLabel" type="text" maxlength="1000" required></textarea>
+                <div id="projectDescriptionHelp" class="form-text">
+                    Max. 1000 characters
+                </div>
+                <br>
+
+                <label for="imageUpload" class="form-label">Image upload</label>
+                <input class="form-control" type="file" id="imageUpload" accept=".png,.jpg,.jpeg">
+                <div id="imageUploadHelp" class="form-text">
+                    Only one png, jpeg or jpg file
+                </div><br><br>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-voice shadow-sm" type="submit" id="submitButton" onclick="publishNews()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class = "news-overview shadow">
+        <div class = "news-overview-title fw-bold">News overview</div>
+        <br> <table class="table"  style="text-align: center">
+        <thead>
+        <tr>
+            <th scope="col">Number</th>
+            <th scope="col">News title</th>
+            <th scope="col">Modify</th>
+        </tr>
+        </thead>
+        <tbody id = "listListNews">
+            <script> loopAllNewsManagement() </script>
+        </ul>
+        </tbody>
+    </table>
+
+
+<!--        <table class="table">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th scope="col">Number</th>-->
+<!--                <th scope="col">News title</th>-->
+<!--                <th scope="col">Modify</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <th scope="row">-->
+<!--                    <div class="list-group" style = "&#45;&#45;bs-list-group-border-color: transparent; &#45;&#45;bs-list-group-action-active-bg: transparent; &#45;&#45;bs-list-group-active-color: transparent; &#45;&#45;bs-list-group-action-hover-bg: transparent " >-->
+<!--                        <a href="projectdashboard.html" class="list-group-item list-group-item-action" style="padding:0;">1.</a>-->
+<!--                    </div>-->
+<!--                </th>-->
+<!--                <td>-->
+<!--                    <div class="list-group" style = "&#45;&#45;bs-list-group-border-color: transparent; &#45;&#45;bs-list-group-action-active-bg: transparent; &#45;&#45;bs-list-group-active-color: transparent; &#45;&#45;bs-list-group-action-hover-bg: transparent " >-->
+<!--                        <a href="projectdashboard.html" class="list-group-item list-group-item-action" style="padding:0;">Project 1</a>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <button type="button" class="btn btn-danger delete-btn">Delete</button>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+        </br>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $("form").on("submit", function (e) {
+        e.preventDefault();
+    });
+</script>
+</html>

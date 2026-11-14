@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="css/styles_shopmanagement.css">
+  <link rel="stylesheet" href="css/navigationpanel.css">
+  <link rel="stylesheet" href="css/voiceelement.css">
+  <script src="lib/shop.js"></script>
+  <script src="webjars/jquery/3.6.4/jquery.js"></script>
+  <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+  <script src="lib/shopmanagement.js"></script>
+  <script src="lib/userData.js"></script>
+  <script src="lib/cookienator.js"></script>
+  <script src="lib/images.js"></script>
+  <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+  <script>$(function(){
+    $("#navigationBar").load("navigationpanel.html")
+    $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+  })</script>
+</head>
+<body onload="currentUserName()">
+<div class="navbarWindow">
+  <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+  </nav>
+</div>
+
+<div id="mobileNavigationBar"></div>
+
+<!--Navigation through the different management pages for admin-->
+
+  <div class="shop-management">
+    <!--Benefit submitting-->
+    <div class="submit-benefit shadow">
+      <div class="submit-contents">
+        <div class="submit-header" id="PageTitle">
+          <b>Submit your benefit</b>
+        </div>
+
+        <div class="benefit-content">
+          <div class="title-idea-wrapper">
+            <label for="BenefitTitle">Title</label>
+            <input type="text" class="form-control" id="BenefitTitle" placeholder="Enter title">
+          </div>
+          <br>
+
+          <div class="description-idea-wrapper">
+            <label for="BenefitDescription">Description</label>
+            <input type="text" class="form-control" id="BenefitDescription" placeholder="Enter description">
+          </div>
+
+          <br>
+
+          <div class="points-idea-wrapper">
+            <label for="BenefitPoints">Points</label>
+            <input type="text" class="form-control" id="BenefitPoints" placeholder="Enter the amount of points">
+          </div>
+
+          <br>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">Category</label>
+            <select class="form-select" aria-label="Default select example" id="exampleFormControlSelect2" >
+              <option value="Clothing">Clothing</option>
+              <option value="School">School</option>
+              <option value="Entertainment">Entertainment</option>
+            </select>
+          </div>
+          <br>
+          <div class="attributes" id="attributes">
+            <div class="size-input container g-3">
+              <div class = "row">
+                <div class="col">
+                  <label for="countBenefit1">Count</label>
+                  <input type="text" class="form-control" placeholder="Enter amount" id = "countBenefit1" onchange="appendAttributes()">
+                </div>
+                <div class="col">
+                  <label for="colorBenefit1">Color</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input" id="colorCheckbox1" onclick="appendAttributes()">
+                      </div>
+                    </div>
+                    <!--<input type="text" class="form-control" placeholder="Enter colour" id = "colorBenefit1" aria-label="Text input with checkbox" onchange="appendAttributes()">-->
+                    <select class="form-select" id = "colorBenefit1" onchange="appendAttributes()">
+                      <option value="0">Red</option>
+                      <option value="1">Green</option>
+                      <option value="2">Blue</option>
+                      <option value="3">Yellow</option>
+                      <option value="4">Black</option>
+                      <option value="5">Purple</option>
+                      <option value="6">Orange</option>
+                      <option value="7">White</option>
+                      <option value="8">Pink</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <label for="sizeBenefit1">Size</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input" id="sizeCheckbox1" onclick="appendAttributes()">
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter size" id = "sizeBenefit1" aria-label="Text input with checkbox"  onchange="appendAttributes()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label class="form-label" for="benefitImagesInput">Benefit images</label>
+          <input type="file" class="form-control" id="benefitImagesInput" />
+          <div class="d-grid gap-2">
+            <script> function callSuccess(){
+              alert("Success");
+            }</script>
+            <button class="btn btn-voice" type="button" id ="submitBenefit" onclick="addBenefit()">Submit benefit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!--Overview of shop items-->
+  <div class="benefit-overview shadow">
+    <div class="benefit-overview-contents">
+      <div class="overview-header">
+        <b>Overview of current benefits</b>
+      </div>
+      <br>
+
+
+      <ul class="list-group" id="listList">
+        <script>loopShopBenefits()</script>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

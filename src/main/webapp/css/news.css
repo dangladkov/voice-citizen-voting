@@ -1,0 +1,90 @@
+.newsPageGrid {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "navigation navigation"
+    "pageTitle pageTitle"
+    "main secondary";
+    grid-template-rows: 75px 50px 1fr;
+    grid-template-columns: 75% 20%;
+    column-gap: 20px;
+}
+
+.navbarWindow { grid-area: navigation }
+
+.pageTitle {
+    grid-area: pageTitle;
+    text-align: center;
+    font-size: 25px;
+}
+
+.newsWrapper {
+    grid-area: main;
+    padding-left: 80px;
+}
+
+.newsPanel {
+    /*width: 40%;*/
+    min-height: 200px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.newsGrid {
+    display: grid;
+    grid-template-areas:
+    "article picture";
+    column-gap: 15px;
+    grid-auto-rows: min-content;
+}
+
+.newsArticle {
+    grid-area: article;
+}
+
+.newsTitle {
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.newsContent {
+    grid-area: article;
+    width: 100%;
+}
+
+.newsImageContainer {
+    grid-area: picture;
+    height: 200px;
+    width: 250px;
+}
+
+.newsImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+
+/* Phone resize */
+@media screen and (max-width: 800px) {
+    .newsPageGrid {
+        grid-template-columns: 100% 0;
+        column-gap: 0;
+    }
+    .newsGrid {
+        grid-template-areas:
+                "picture"
+                "article";
+    }
+    .newsWrapper {
+        padding-left: 0;
+        width: 90%;
+        justify-self: center;
+    }
+    .newsImageContainer {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

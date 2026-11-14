@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Voice Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="css/submitidea.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+    <link rel="stylesheet" href="css/navigationpanel.css">
+    <link rel="stylesheet" href="css/alerts.css">
+    <link rel="stylesheet" href="webjars/leaflet/1.8.0/leaflet.css"/>
+    <link rel="map" href="webjars/leaflet/1.8.0/leaflet.js">
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script type="text/javascript" src="lib/submitidea.js"></script>
+    <script src="lib/userData.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <script src="lib/images.js"></script>
+    <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+    <script>$(function(){
+      $("#navigationBar").load("navigationpanel.html")
+      $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+    })</script>
+
+  </head>
+
+  <body onload="currentUserName()">
+  <div class="submitPage">
+    <div class="warningAlertLocation alert alert-danger">Location was not found, please try again</div>
+    <div class="warningAlertGeocoding alert alert-danger">An error occurred, please try again</div>
+
+    <div class="navbarWindow">
+      <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+      </nav>
+    </div>
+
+    <div id="mobileNavigationBar"></div>
+
+    <div class="submitWindow shadow">
+      <form style="height: 100%" onsubmit="submitIdeaDetails()">
+        <div class="submitContents">
+          <div class="submitHeader">
+            <label for="titleLabel" class="form-label fw-bold">Submit your idea!</label>
+          </div>
+
+          <div class="submitLeft">
+            <label for="titleLabel" class="form-label">Project title</label><br>
+            <input class="labelFit form-control" id="titleLabel" type="text" maxlength="35" placeholder="An interesting title..." required/>
+            <div id="projectTitleHelp" class="form-text">
+              Max. 35 characters
+            </div>
+            <br><br>
+
+            <label for="descriptionLabel" class="form-label">Idea Description</label><br>
+            <textarea rows="10" style="resize: none;" class="descriptionField form-control" id="descriptionLabel" type="text" maxlength="1000" required></textarea>
+            <div id="projectDescriptionHelp" class="form-text">
+              Max. 1000 characters
+            </div>
+
+          </div>
+
+          <div class="submitRight">
+            <label for="imageUpload" class="form-label">Image upload</label>
+            <input class="form-control" type="file" id="imageUpload" accept=".png,.jpg,.jpeg" multiple>
+            <div id="imageUploadHelp" class="form-text">
+              Only png, jpeg or jpg files.
+            </div>
+
+            <br><br>
+
+            <label for="locationInput" class="form-label">Location</label><br>
+            <div class="row g-3 align-items-center">
+              <div class="col-7">
+                <input class="locationInput form-control" id="locationInput" type="text" placeholder="Address"/>
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn btn-secondary" id="locationButton" onclick=setMarker() >Set</button>
+              </div>
+            </div>
+
+            <br><br>
+
+            <label for="dateLabel" class="form-label">Date</label><br>
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <input id="dateLabel" class="form-control" type="date" onkeydown="return false"/>
+              </div>
+            </div>
+
+            <br><br>
+          </div>
+
+          <div class="d-grid gap-2">
+            <button class="btn btn-voice shadow-sm" type="submit" id="submitButton">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="mapWindow shadow">
+      <div id="map"></div>
+    </div>
+  </div>
+  </body>
+
+</html>
+<script src="webjars/leaflet/1.8.0/leaflet.js"></script>
+<script>
+  var map = L.map('map').setView([52.24042172144043, 6.849487143134112], 16);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  var markerList = L.layerGroup().addTo(map);
+
+
+  function setMarker() {
+    var inputAddress = document.getElementById('locationInput').value;
+    if (inputAddress) {
+      // Use Geocoding API to get the coordinates from the address
+      var geocodingUrl = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(inputAddress);
+      fetch(geocodingUrl)
+              .then(function(response) {
+                return response.json();
+              })
+              .then(function(data) {
+                if (data.length > 0) {
+                  var lat = parseFloat(data[0].lat);
+                  var lon = parseFloat(data[0].lon);
+                  // Clear the existing markers on the map
+                  markerList.clearLayers();
+                  // Add marker on coordinates
+                  var marker = L.marker([lat, lon]).addTo(markerList);
+                  // Navigate to the point on the map
+                  map.setView([lat, lon], 13);
+                } else {
+                  $(".warningAlertLocation").fadeIn();
+                  setTimeout(function(){
+                    $(".warningAlertLocation").fadeOut();
+                  }, 1500);
+                }
+              })
+              .catch(function(error) {
+                $(".warningAlertGeocoding").fadeIn();
+                setTimeout(function(){
+                  $(".warningAlertGeocoding").fadeOut();
+                }, 1500);
+              });
+    }
+  }
+
+  document.getElementById('locationButton').addEventListener('click', setMarker);
+
+</script>
+<script>
+  function validateImages() {
+
+  }
+</script>
+<script type="text/javascript">
+  $("form").on("submit", function (e) {
+    e.preventDefault();
+  });
+</script>

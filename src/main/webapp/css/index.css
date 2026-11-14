@@ -1,0 +1,394 @@
+.pageGrid {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "navigation navigation"
+    "main main"
+    "info info"
+    "ongoingTitle ongoingCardsGrid"
+    "finishedTitle finishedCardsGrid";
+    grid-template-rows: 8vh 92vh 300px auto auto;
+    grid-template-columns: 8% 92%;
+    justify-items: stretch;
+}
+
+.main {
+    grid-area: main;
+    position: relative;
+}
+
+.mainImageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    place-self: center;
+}
+
+.mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+
+.welcomePanel {
+    width: 600px;
+    height: 400px;
+    grid-area: main;
+    background-color: transparent;
+    padding: 20px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomePanelContents {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.infoPanel {
+    grid-area: info;
+    width: 90%;
+    height: 150px;
+    background-color: white;
+    align-self: center;
+    justify-self: center;
+    padding: 20px;
+}
+
+.infoGrid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "totalProjects totalUsers castedVotes pointsSpent";
+    grid-template-columns: 25% 25% 25% 25%;
+    place-items: center;
+    text-align: center;
+}
+
+.infoGridNumber {
+    font-size: 50px;
+    margin-bottom: -5px;
+}
+
+.totalProjects {
+    grid-area: totalProjects;
+}
+
+.totalUsers {
+    grid-area: totalUsers;
+}
+
+.castedVotes {
+    grid-area: castedVotes;
+}
+
+.pointsSpent {
+    grid-area: pointsSpent;
+}
+
+.navWindow { grid-area: navigation }
+
+.ongoingTitle {
+    grid-area: ongoingTitle;
+    text-align: center;
+    justify-self: end;
+    margin-bottom: 80px;
+}
+
+.ongoingTitleText {
+    font-size: 25px;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(-180deg);
+    position: sticky;
+    top: 0;
+    padding-bottom: 70px;
+}
+
+.ongoingCardsPanel {
+    width: 70px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+}
+
+.ongoingCardsGrid {
+    grid-area: ongoingCardsGrid;
+    width: 99%;
+    display: grid;
+    grid-template-columns: repeat(4,20rem);
+    row-gap: 15px;
+    justify-items: center;
+    margin-bottom: 80px;
+}
+
+.finishedTitle {
+    grid-area: finishedTitle;
+    text-align: center;
+    justify-self: end;
+    margin-bottom: 50px
+}
+
+.finishedTitleText {
+    font-size: 25px;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(-180deg);
+    position: sticky;
+    top: 0;
+    padding-bottom: 70px;
+}
+
+.finishedCardsPanel {
+    width: 70px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+}
+
+.finishedCardsGrid {
+    grid-area: finishedCardsGrid;
+    width: 99%;
+    display: grid;
+    grid-template-columns: repeat(4, 20rem);
+    row-gap: 15px;
+    justify-items: center;
+    margin-bottom: 50px;
+}
+
+.card {
+    width: 270px;
+    height: 450px;
+}
+
+.card-img-top {
+    width: 268px;
+    height: 214px;
+}
+
+.containerImage {
+    width: 268px;
+    height: 214px;
+    object-fit: cover;
+    background-position: center;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+
+.carousel-inner {
+    height: 400px;
+}
+
+.projectCardGrid {
+    width: 95%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "projTitle points"
+    "categories categories"
+    "description description"
+    "voteButton voteButton"
+    "numOfVotes endDate";
+    grid-template-rows: 23% 10% 41% 16% 10%;
+    grid-template-columns: 50% 50%;
+    justify-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardTitle {
+    grid-area: projTitle;
+    font-size: 20px;
+    width: 170%;
+    padding-top: 4px;
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 2.5em;
+    line-height: 1.1em;
+}
+.cardPoints {
+    grid-area: points;
+    font-size: 20px;
+    color: #3d586e;
+    justify-self: end;
+}
+.cardCategories {
+    grid-area: categories;
+    width: 97%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+.cardDescription {
+    grid-area: description;
+    font-size: 14px;
+    padding-top: 2%;
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 6.2em;
+    line-height: 1.5em;
+}
+.cardButton { grid-area: voteButton }
+.cardVotes {
+    grid-area: numOfVotes;
+    font-size: 11px;
+    color: #5b5e64;
+    padding-top: 3px;
+}
+.cardEndDate {
+    grid-area: endDate;
+    font-size: 11px;
+    color: #5b5e64;
+    justify-self: end;
+    padding-top: 3px;
+}
+
+.modal-dialog {
+    --bs-modal-width: 50vw;
+}
+
+.modalView {
+    width: 95%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modalTitleGrid {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "modalTitle closeButton";
+    grid-template-columns: 95% 5%;
+    justify-items: stretch;
+}
+
+.projectTitle { grid-area: modalTitle }
+.closeButton { grid-area: closeButton }
+
+#mapUD, #mapQ, #mapUDFinished, #mapQFinished {
+    width: 100%;
+    height: 300px;
+}
+
+.modalUpdownButtons {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "upvoteButton downvoteButton";
+    grid-template-columns: 50% 50%;
+    gap: 15px;
+    justify-items: stretch;
+}
+
+.upvoteButton {
+    grid-area: upvoteButton;
+    justify-self: end;
+}
+.downvoteButton { grid-area: downvoteButton }
+
+.questionText {
+    place-self: center;
+    font-size: 20px;
+}
+
+.questionBody {
+    margin-bottom: 40px;
+}
+
+/* Phone resize */
+@media screen and (max-width: 800px) {
+    .pageGrid {
+        grid-template-rows: 6vh 94vh 300px auto auto;
+        grid-template-columns: 10% 90%;
+    }
+    .welcomePanel {
+        width: 100%;
+    }
+    .infoPanel {
+        height: 70%;
+    }
+    .infoGrid {
+        grid-template-areas:
+                "totalProjects totalUsers"
+                "castedVotes pointsSpent";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        height: 100%;
+    }
+    .infoGridNumber {
+        font-size: 40px;
+    }
+    .ongoingCardsPanel, .finishedCardsPanel {
+        width: 57px;
+    }
+    .ongoingTitleText, .finishedTitleText {
+        font-size: 20px;
+    }
+    .carousel-inner {
+        height: 267px;
+    }
+}
+
+/* Adaptive sizing of the cards grid */
+@media (max-width: 90rem) {
+    .ongoingCardsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .finishedCardsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 75rem) {
+    .ongoingCardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .finishedCardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 58rem) {
+    .ongoingCardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .finishedCardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 40rem) {
+    .ongoingCardsGrid {
+        grid-template-columns: repeat(1, 1fr);
+        padding-right: 9%;
+    }
+    .finishedCardsGrid {
+        grid-template-columns: repeat(1, 1fr);
+        padding-right: 9%;
+    }
+}

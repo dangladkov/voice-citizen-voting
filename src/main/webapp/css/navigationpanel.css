@@ -1,0 +1,131 @@
+.mainNavbar {
+    background-color: #ffd0a0;
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.userDropdown.dropdown-toggle::after {
+    display:none;
+}
+
+.navbarDropdown {
+    --bs-dropdown-bg: #ffd0a0;
+    --bs-dropdown-link-hover-bg: #d9b087;
+    --bs-dropdown-link-active-bg: #b69371;
+    --bs-dropdown-border-color: transparent;
+}
+
+.navbarDropdownItem {
+    --bs-dropdown-color: var(--bs-navbar-color);
+    --bs-btn-hover-color: var(--bs-navbar-hover-color);
+    --bs-dropdown-link-active-color: var(--bs-navbar-active-color);
+    opacity: 70%;
+}
+
+.adminDropdownCompact {
+    display: none;
+}
+
+.mainNavbarItem {
+    display: block;
+}
+
+.mobileNavbarItem {
+    display: none;
+}
+
+.mobileNavbarLink, .mobileNavbarTitle {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.mobileNavbarTitle {
+    font-size: 20px;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.mNavbarBottomBtns {
+    margin-top: 40%;
+}
+
+.pointsCol {
+    padding-right: 0;
+}
+
+.usernameLabelCompact {
+    display: none;
+}
+
+.usernameLabel {
+    display: block;
+}
+
+/* Phone resize */
+@media screen and (max-width: 800px) {
+    .mobileNavbar {
+        --bs-offcanvas-width: 60%!important;
+    }
+    .mNavbarBottomBtns {
+        margin-top: 45%;
+    }
+    .mobileNavbarLink {
+        margin-bottom: 20px;
+    }
+    .mobileNavbarLink a {
+        font-size: 20px;
+    }
+    .pointsCol {
+        padding-right: 4px;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 1170px) {
+    .pointsLabelCol {
+        display: block;
+    }
+    .adminDropdown {
+        display: none;
+    }
+    .navbarDropdown {
+        display: none!important;
+    }
+    .mainNavbarItem {
+        display: none;
+    }
+    .mobileNavbarItem {
+        display: block;
+        place-self: center;
+    }
+    .usernameLabelCompact {
+        display: block;
+    }
+    .usernameLabel {
+        display: none!important;
+    }
+}
+
+/* CSS FOR MOBILE VERSION */
+.mobileNavbar {
+    background-color: #ffd0a0;
+    --bs-offcanvas-width: 30%;
+}
+
+.offcanvas-body {
+    padding-left: 30px;
+}
+
+.mobileNavbarLink a {
+    color: black;
+    opacity: 70%;
+    text-decoration: none;
+}
+
+.mobileNavbarLogout {
+    padding-left: 30px;
+}

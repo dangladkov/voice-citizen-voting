@@ -1,0 +1,24 @@
+.chartBox {
+    width: 700px;
+    padding: 40px;
+    border-radius: 20px;
+    background: white;
+    margin: auto;
+}
+
+.page-content-wrapper{
+    margin-top: 80px;
+    border-radius: 10px;
+    height: 70vh;
+    width: 90%;
+    background-color: white;
+    place-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-title {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+}

@@ -1,0 +1,162 @@
+.leadPage {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "navigation"
+    "leaderboard";
+    grid-template-rows: 10% 88%;
+    gap: 2px;
+    align-items: center;
+    justify-items: stretch;
+}
+
+.leadWindow {
+    height: 95%;
+    width: 40vw;
+    grid-area: leaderboard;
+    background-color: white;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leadTable {
+    width: 95%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "title title title"
+    "icon1 user1 user1Score"
+    "icon2 user2 user2Score"
+    "icon3 user3 user3Score"
+    ". user4 user4Score"
+    ". user5 user5Score"
+    ". user6 user6Score"
+    ". user7 user7Score"
+    ". user8 user8Score"
+    ". user9 user9Score"
+    ". user10 user10Score"
+    "icon11 thisUser thisUserScore";
+    grid-template-columns: 5% 75% 20%;
+    grid-template-rows: 10% 8% 8% 8% 8% 8% 8% 8% 8% 8% 8% 10%;
+    justify-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leadTableTitle {
+    grid-area: title;
+    text-align: center;
+    align-self: center;
+}
+
+.circleIcon {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.table-primary {
+    --bs-table-border-color: #ffd0a0;
+}
+
+/* Shared table properties */
+.user1, .user2, .user3 {
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.user4, .user5, .user6, .user7, .user8, .user9, .user10, .thisUser {
+    padding-top: 10px;
+    font-size: 18px;
+    color: #5b5e64;
+    align-self: center;
+}
+
+.thisUser {
+    font-size: 20px;
+    color: black;
+    align-self: center;
+}
+
+.user1Score, .user2Score, .user3Score {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    color: #5f656c;
+}
+
+.user4Score, .user5Score, .user6Score, .user7Score, .user8Score, .user9Score, .user10Score, .thisUserScore {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 18px;
+    color: #7a828c;
+    align-self: center;
+}
+
+.thisUserScore {
+    font-size: 20px;
+    color: black;
+    align-self: center;
+}
+
+.goldIcon, .silverIcon, .bronzeIcon {
+    padding-top: 14px;
+}
+
+/* Phone resize */
+@media screen and (max-width: 800px) {
+    .leadWindow {
+        width: 90vw;
+    }
+    .leadTable {
+        grid-template-columns: 10% 65% 25%;
+    }
+    .goldIcon, .silverIcon, .bronzeIcon {
+        padding-top: 17px;
+    }
+    .circleIcon {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Grid area assignments */
+.user1 { grid-area: user1; }
+.user1Score { grid-area: user1Score; }
+.goldIcon { grid-area: icon1; }
+
+.user2 { grid-area: user2; }
+.user2Score { grid-area: user2Score; }
+.silverIcon { grid-area: icon2; }
+
+.user3 { grid-area: user3; }
+.user3Score { grid-area: user3Score; }
+.bronzeIcon { grid-area: icon3; }
+
+.user4 { grid-area: user4; }
+.user4Score { grid-area: user4Score; }
+
+.user5 { grid-area: user5; }
+.user5Score { grid-area: user5Score; }
+
+.user6 { grid-area: user6; }
+.user6Score { grid-area: user6Score; }
+
+.user7 { grid-area: user7; }
+.user7Score { grid-area: user7Score; }
+
+.user8 { grid-area: user8; }
+.user8Score { grid-area: user8Score; }
+
+.user9 { grid-area: user9; }
+.user9Score { grid-area: user9Score; }
+
+.user10 { grid-area: user10; }
+.user10Score { grid-area: user10Score; }
+
+.thisUserBackground { grid-area: icon11 / icon11 / thisUserScore / thisUserScore; }
+.thisUserIcon { grid-area: icon11 }
+.thisUser { grid-area: thisUser; }
+.thisUserScore { grid-area: thisUserScore; }

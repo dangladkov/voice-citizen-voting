@@ -1,0 +1,67 @@
+.main {
+    padding: 5px;
+    margin-top: 60px;
+}
+
+.card {
+    width: 18rem;
+    height: 22rem;
+    padding: 5px;
+}
+
+.card p {
+    text-align: left;
+    font-size: 15px;
+}
+
+.card a {
+    position: absolute;
+    bottom: 5px;
+    width: 96%;
+}
+
+.card h5{
+    margin-top: 5px;
+}
+
+.title {
+    text-align: center;
+    font-size: 25px;
+}
+
+.title-points-card{
+    position: relative;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 20px;
+    justify-items: center;
+}
+
+@media (max-width: 90rem) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 75rem) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 58rem) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 40rem) {
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

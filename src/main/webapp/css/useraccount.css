@@ -1,0 +1,124 @@
+.userPage {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "navigation navigation"
+    "usercard userinfo";
+    grid-template-columns: 35% 1fr;
+    grid-template-rows: 10% 1fr;
+    gap: 3%;
+    column-gap: 2%;
+}
+
+.navbar {
+    grid-area: navigation;
+}
+
+.userCard .userInfo {
+    background-color: white;
+    padding: 3%;
+}
+
+.userCard {
+    grid-area: usercard;
+    height: 30%;
+    width: 70%;
+    justify-self: end;
+    padding-top: 2%;
+    /* To overlap it with userinfo */
+    position: relative;
+    left: 11vw;
+    top: 3vh;
+    z-index: 69;
+    background-color: #ffd0a0; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, #ffd0a0, #ffa549);
+}
+
+.userInfo {
+    grid-area: userinfo;
+    height: 95%;
+    width: 80%;
+    justify-self: start;
+    padding-top: 6%;
+    position: relative;
+    left: -10vw;
+}
+
+.userGrid {
+    padding: 3%;
+    display: grid;
+    grid-template-areas:
+    "fname . ."
+    "lname . ."
+    ". points plabel";
+    grid-template-columns: 50% 35% 15%;
+    grid-template-rows: 35px 35px;
+}
+
+.userFirstName {
+    grid-area: fname;
+    font-size: 25px;
+    color: white;
+}
+.userLastName {
+    grid-area: lname;
+    font-size: 25px;
+    color: white;
+}
+.userPoints {
+    grid-area: points;
+    font-size: 30px;
+    padding-top: 8%;
+    align-self: center;
+    justify-self: end;
+    padding-right: 8%;
+    color: ghostwhite;
+}
+.userPointsLabel {
+    grid-area: plabel;
+    font-size: 10px;
+    color: ghostwhite;
+    align-self: center;
+}
+.userInfoPhone, .userInfoEmail {
+    padding-left: 43%;
+}
+.userAccountRow {
+    margin-bottom: 7px;
+}
+.userAccountCol {
+    margin-left: 41%;
+}
+
+/* Phone resize */
+@media screen and (max-width: 800px) {
+    .userPage {
+        grid-template-areas:
+                "navigation"
+                "usercard"
+                "userinfo";
+        grid-template-columns: 100%;
+        grid-template-rows: 8% 32% auto;
+    }
+    .userCard {
+        height: 70%;
+        width: 80%;
+        justify-self: center;
+        align-self: end;
+        left: 0;
+        top: 0;
+        padding-top: 7%;
+    }
+    .userInfo {
+        justify-self: center;
+        left: 0;
+        height: 75%;
+    }
+    .userInfoPhone, .userInfoEmail {
+        padding-left: 0;
+    }
+    .userAccountCol {
+        margin-left: 0;
+    }
+}

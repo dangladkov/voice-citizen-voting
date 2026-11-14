@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Voice Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="css/submitproject.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+    <link rel="stylesheet" href="css/navigationpanel.css">
+    <link rel="stylesheet" href="css/alerts.css">
+    <link rel="stylesheet" href="webjars/leaflet/1.8.0/leaflet.css"/>
+    <link rel="map" href="webjars/leaflet/1.8.0/leaflet.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<!--    <script type = "text/javascript" src="lib/submitidea.js"></script>-->
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script src="lib/userData.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <script src="lib/submitproject.js"></script>
+    <script src="lib/images.js"></script>
+    <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+    <script>$(function(){
+      $("#navigationBar").load("navigationpanel.html")
+      $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+    })</script>
+    <script src="lib/project.js" ></script>
+
+  </head>
+
+  <body onload="currentUserName()">
+  <div class="submitPage">
+    <div class="warningAlertLocation alert alert-danger">Location was not found, please try again</div>
+    <div class="warningAlertGeocoding alert alert-danger">An error occurred, please try again</div>
+
+    <div class="navbarWindow">
+      <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+      </nav>
+    </div>
+
+    <div id="mobileNavigationBar"></div>
+
+    <div class="submitWindow shadow">
+      <script>
+        let queryString = window.location.search;
+        let urlParams = new URLSearchParams(queryString);
+        let passedVariable = parseInt(urlParams.get('var'));
+        getProjectDetailsForEdit(passedVariable);
+      </script>
+      <form style="width: 100%" onsubmit="publishProject(-1)">
+        <div class="submitHeader">
+          <label for="titleLabel" class="form-label">Submit a project</label>
+        </div>
+
+        <label for="titleLabel" class="form-label">Project title</label><br>
+        <input class="labelFit form-control" id="titleLabel" type="text" maxlength="35" placeholder="An interesting title..." required/>
+        <div id="projectTitleHelp" class="form-text">
+          Max. 35 characters
+        </div>
+
+        <br><br>
+
+        <label for="descriptionLabel" class="form-label">Project Description</label><br>
+        <textarea rows="5" style="resize: none;" class="descriptionField form-control" id="descriptionLabel" type="text" maxlength="1000" required></textarea>
+        <div id="projectDescriptionHelp" class="form-text">
+          Max. 1000 characters
+        </div>
+
+        <br><br>
+
+        <label class="form-label">Location</label><br>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <input class="form-control" id="locationInput" type="text"/>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-secondary" id="locationButton" onclick=setMarker() >Set</button>
+          </div>
+        </div>
+
+        <br><br>
+
+        <label for="imageUpload" class="form-label">Image upload</label>
+        <input class="form-control" type="file" id="imageUpload" multiple>
+        <div id="imageUploadHelp" class="form-text">
+          Only png, jpeg or jpg files.
+        </div>
+
+        <br><br>
+<!--QUESTIONS -->
+        <div class="container">
+          <div class="row">
+            <div class="col-2">
+              <label class="col-form-label" style="padding-left: 0">Questions:</label>
+            </div>
+            <div class="col-2">
+              <input type="number" readonly class="form-control-plaintext" id="questionCount" value="1">
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-secondary" id="addQuestionBtn" onclick="addQuestionV2()">Add question</button>
+            </div>
+          </div>
+        </div><br>
+
+        <ul class="list-group" id="questionsList">
+          <li class="question list-group-item" id="questionGroup1">
+            <div>
+              <input class="labelFit form-control" id="question1" type="text" maxlength="300" placeholder="Question title" required/>
+              <br>
+
+              <ul class="answerList" id="answerGroup1">
+                <li class="answer" style="position: relative;">
+                  <input class="form-control" id="answer11" type="text" maxlength="100" placeholder="Answer" required/>
+                  <i class="deleteAnswer fa-solid fa-trash" onclick="deleteAnswer(this)"></i>
+                </li>
+                <li class="answer" style="position: relative;">
+                  <input class="form-control" id="answer12" type="text" maxlength="100" placeholder="Answer" required/>
+                  <i class="deleteAnswer fa-solid fa-trash" onclick="deleteAnswer(this)"></i>
+                </li>
+              </ul>
+
+              <br>
+              <div class="d-grid gap-2 d-md-block">
+                <button type="button" class="btn btn-outline-info btn-sm" id="1" onclick="addAnswerV2(this)">Add answer</button>
+                <button type="button" class="deleteBtn btn btn-outline-danger btn-sm" onclick="deleteQuestion(this)">Delete question</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <br>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="dateLabel" class="form-label">Date</label><br>
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <input id="dateLabel" class="form-control" type="date" onkeydown="return false" required/>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto"></div>
+          <div class="col-auto"></div>
+          <div class="col-auto">
+            <label for="dateVoteLabel" class="form-label">Voting deadline</label><br>
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <input id="dateVoteLabel" class="form-control" type="date" onkeydown="return false" required/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+
+        <label class="form-label">Categories</label><br>
+        <div class="d-table" id="categories">
+          <input type="checkbox" class="btn-check" id="socialCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="socialCat">Social</label>
+
+          <input type="checkbox" class="btn-check" id="educationCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="educationCat">Education</label>
+
+          <input type="checkbox" class="btn-check" id="cultureCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="cultureCat">Culture</label>
+
+          <input type="checkbox" class="btn-check" id="corporateCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="corporateCat">Corporate</label>
+
+          <input type="checkbox" class="btn-check" id="communityCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="communityCat">Community</label>
+
+          <input type="checkbox" class="btn-check" id="environmentCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="environmentCat">Environment</label>
+
+          <input type="checkbox" class="btn-check" id="techCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="techCat">Tech</label>
+
+          <input type="checkbox" class="btn-check" id="governmentCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="governmentCat">Government</label>
+
+          <input type="checkbox" class="btn-check" id="healthCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="healthCat">Health</label>
+
+          <input type="checkbox" class="btn-check" id="leisureCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="leisureCat">Leisure</label>
+
+          <input type="checkbox" class="btn-check" id="sportsCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="sportsCat">Sports</label>
+
+          <input type="checkbox" class="btn-check" id="religionCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="religionCat">Religion</label>
+
+          <input type="checkbox" class="btn-check" id="charityCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="charityCat">Charity</label>
+
+          <input type="checkbox" class="btn-check" id="tourismCat" autocomplete="off">
+          <label class="btn btn-outline-primary m-1" for="tourismCat">Tourism</label>
+
+          <!--<script> publishProject()</script> -->
+        </div>
+
+        <br><br>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="pointsLabel" class="form-label">Points awarded</label><br>
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <label class="form-label" style="text-align: center; font-size: 20px">+</label>
+              </div>
+              <div class="col-5">
+                <input class="form-control" id="pointsLabel" type="number" required/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="d-grid gap-2">
+          <!--        <button class="btn btn-outline-warning" type="button" id="submitButton" onclick = validateCheckedBox("educationCat") onclick="window.location.href = '';" onclick = publishProject()-->
+          <!--        >Publish</button>-->
+          <button class="btn btn-voice" type="submit" id="submitButton">Publish</button>
+          <!--        window.location.href = ''-->
+
+          <!--        <script>-->
+          <!--            let submitBtn = document.getElementById("submitButton");-->
+          <!--            //submitBtn.addEventListener("click",validateCheckedBox("educationCat"));-->
+          <!--            //submitBtn.addEventListener("click",window.location.href = '');-->
+          <!--            submitBtn.addEventListener("click",publishProject());-->
+          <!--        </script>-->
+        </div>
+      </form>
+    </div>
+
+    <div class="mapWindow shadow">
+      <div id="map"></div>
+    </div>
+  </div>
+  </body>
+
+</html>
+<script>
+  document.querySelector(".deleteBtn").hidden = true;
+  document.querySelectorAll(".deleteAnswer")[0].hidden = true;
+  document.querySelectorAll(".deleteAnswer")[1].hidden = true;
+</script>
+
+<script src="webjars/leaflet/1.8.0/leaflet.js"></script>
+<script>
+  var map = L.map('map').setView([52.24042172144043, 6.849487143134112], 16);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  var markerList = L.layerGroup().addTo(map);
+
+
+  function setMarker() {
+    var inputAddress = document.getElementById('locationInput').value;
+    if (inputAddress) {
+      // Use Geocoding API to get the coordinates from the address
+      var geocodingUrl = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(inputAddress);
+      fetch(geocodingUrl)
+              .then(function(response) {
+                return response.json();
+              })
+              .then(function(data) {
+                if (data.length > 0) {
+                  var lat = parseFloat(data[0].lat);
+                  var lon = parseFloat(data[0].lon);
+                  // Clear the existing markers on the map
+                  markerList.clearLayers();
+                  // Add marker on coordinates
+                  var marker = L.marker([lat, lon]).addTo(markerList);
+                  // Navigate to the point on the map
+                  map.setView([lat, lon], 13);
+                } else {
+                  $(".warningAlertLocation").fadeIn();
+                  setTimeout(function(){
+                    $(".warningAlertLocation").fadeOut();
+                  }, 1500);
+                }
+              })
+              .catch(function(error) {
+                console.log('Error:', error);
+                $(".warningAlertGeocoding").fadeIn();
+                setTimeout(function(){
+                  $(".warningAlertGeocoding").fadeOut();
+                }, 1500);
+              });
+    }
+  }
+
+  document.getElementById('locationButton').addEventListener('click', setMarker);
+
+</script>
+<script type="text/javascript">
+  $("form").on("submit", function (e) {
+    e.preventDefault();
+  });
+</script>

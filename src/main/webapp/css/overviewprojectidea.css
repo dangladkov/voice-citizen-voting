@@ -1,0 +1,52 @@
+.navigationBar {
+    grid-area: navigation;
+    width: 100%;
+}
+
+.projects, .ideas{
+    margin-top: 20vh;
+    border-radius: 10px;
+    height: 100%;
+    width: 95%;
+    background-color: white;
+    place-self: center;
+}
+
+
+.submit-header {
+    text-align: center;
+    font-size: 30px;
+}
+
+.project-and-ideas {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.projects-header{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.list-item-spacing {
+    margin-right: 220px;
+}
+
+.list-item-spacing-2{
+    margin-left: -130px;
+}
+
+.list-group-item a {
+    color: black;
+}
+
+.nav-pills{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+}
+
+

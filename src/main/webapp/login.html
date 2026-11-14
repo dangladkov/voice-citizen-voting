@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Voice Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+
+    <script src="lib/login.js"></script>
+    <script src="lib/errorHandling.js"></script>
+    <script src="lib/hashing.js"></script>
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  </head>
+
+  <body>
+  <div class="loginGrid">
+    <div class="pageImageContainer shadow rounded-2">
+      <img src="images/image_amsterdam.png" class="pageImage rounded-2">
+    </div>
+    <div class="loginPanel shadow rounded-2">
+      <form id="loginForm" onsubmit="loginUser()">
+        <div class="titleLabel" style="text-align: center; padding-bottom: 15px;">
+          <label class="form-label fw-bold" style="font-size: 25px;">Empower your VOICE</label>
+        </div>
+        <br>
+
+        <label for="usernameInput" class="form-label">Phone number or E-mail</label><br>
+        <input class="labelFit form-control" id="usernameInput" type="text" required/>
+        <br>
+
+        <div style="position: relative;">
+          <label for="passwordInput" class="form-label">Password</label><br>
+          <input class="labelFit form-control" id="passwordInput" type="password" required/>
+          <i class="fa-solid fa-eye" id="eyePassword"></i>
+        </div>
+        <br><br><br>
+
+        <div class="row g-3">
+          <div class="col-7">
+            <button type="submit" class="btn btn-voice shadow-sm" id="loginButton" style="width:100%; margin-left: 1%; position: relative; left: 15%">Log In</button><br>
+          </div>
+          <div class="col-4">
+            <button type="button" class="btn btn-outline-secondary" id="signupButton" style="margin-left: 1%; position: relative; left: 20%" onclick="window.location.href = 'signup.html';">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    const passwordInput = document.querySelector("#passwordInput")
+    const passwordVisibility = document.querySelector("#eyePassword")
+
+    passwordVisibility.addEventListener("click", function(){
+      this.classList.toggle("fa-eye-slash")
+      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
+      passwordInput.setAttribute("type", type)
+    })
+  </script>
+  <script type="text/javascript">
+    $("form").on("submit", function (e) {
+      e.preventDefault();
+    });
+  </script>
+  </body>
+</html>
+<script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>

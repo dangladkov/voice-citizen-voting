@@ -1,0 +1,109 @@
+body {
+    background-color: #f0f5ff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-body-tertiary {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card {
+    width: 270px;
+    height: 420px;
+    /*padding: 5px;*/
+}
+
+.card-img-top {
+    width: 268px;
+    height: 214px;
+}
+
+.containerImage {
+    width: 268px;
+    height: 214px;
+    object-fit: cover;
+    background-position: center;
+}
+
+.carousel-item {
+    width: 632px;
+    height: 420px;
+    object-fit: cover;
+    background-position: center;
+}
+
+.projectCardGrid {
+    width: 95%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "projTitle points"
+    "categories categories"
+    "description description"
+    "voteButton voteButton"
+    "numOfVotes endDate";
+    grid-template-rows: 15% 10% 47% 18% 10%;
+    grid-template-columns: 50% 50%;
+    justify-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardTitle {
+    grid-area: projTitle;
+    font-size: 20px;
+}
+.cardPoints {
+    grid-area: points;
+    font-size: 20px;
+    color: #3d586e;
+    justify-self: end;
+}
+.cardCategories {
+    grid-area: categories;
+    width: 97%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+.cardDescription {
+    grid-area: description;
+    font-size: 14px;
+    padding-top: 2%;
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 6em;
+    line-height: 1.5em;
+}
+.cardButton { grid-area: voteButton }
+.cardVotes {
+    grid-area: numOfVotes;
+    font-size: 11px;
+    color: #5b5e64;
+    padding-top: 1px;
+}
+.cardEndDate {
+    grid-area: endDate;
+    font-size: 11px;
+    color: #5b5e64;
+    justify-self: end;
+    padding-top: 1px;
+}
+
+.main {
+    padding: 5px;
+}
+
+.form-select {
+    width: 200px;
+}
+
+.projects {
+    display: none;
+}

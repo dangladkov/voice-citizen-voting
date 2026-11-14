@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voice Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script src="lib/hashing.js"></script>
+    <script src="lib/signup.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+    <body>
+    <div class="signupGrid">
+        <div class="signupPanel shadow rounded-2">
+            <form id="signupForm" onsubmit="signupUser()">
+                <div class="titleLabel" style="text-align: center; padding-bottom: 10px;">
+                    <label class="form-label fw-bold" style="font-size: 25px;">Unleash your potential!</label>
+                </div>
+
+                <div class="container" style="padding-left: 0; padding-right: 0;">
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label" for="signupFirstName">First name</label>
+                            <input type="text" class="form-control" id="signupFirstName" pattern="[a-zA-Z]+" minlength="2" maxlength="32" required>
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="signupLastName">Last name</label>
+                            <input type="text" class="form-control" id="signupLastName" pattern="[a-zA-Z]+" minlength="2" maxlength="32" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="nameHelp" class="form-text">
+                            Between 2 and 32 letters
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <label for="signupPhoneNumber" class="form-label">Phone number</label><br>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">+</span>
+                    <input type="text" class="form-control" id="signupPhoneNumber" minlength="7" maxlength="15" pattern="[0-9]+" required>
+                </div>
+                <div id="signupPhoneHelp" class="form-text">
+                    Between 7 and 15 digits
+                </div><br>
+
+                <label for="signupEmail" class="form-label">E-mail</label><br>
+                <input class="labelFit form-control" id="signupEmail" type="text" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" required/>
+                <div id="emailPhoneHelp" class="form-text">
+                    Standard email format (example@example.com)
+                </div><br>
+
+                <div class="container" style="padding-left: 0; padding-right: 0;">
+                    <div class="row">
+                        <div class="col" style="position: relative;">
+                            <label class="form-label" for="signupPassword">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                            <i class="fa-solid fa-eye" id="eyePassword"></i>
+                        </div>
+
+                        <div class="col" style="position: relative;">
+                            <label class="form-label" for="signupConfirmPassword">Confirm password</label>
+                            <input type="password" class="form-control" id="signupConfirmPassword" required>
+                            <i class="fa-solid fa-eye" id="eyeConfirmPassword"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="signupPasswordHelp" class="form-text">
+                            Min. 8 characters, lowercase letter, uppercase letter, digit
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-7">
+                            <button type="submit" class="btn btn-voice shadow-sm" id = "signupButton" style="width:100%; margin-left: 1%; position: relative; left: 19%">Join VOICE</button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" class="btn btn-outline-secondary" id = "loginButton" style="margin-left: 1%; position: relative; left: 24%" onclick="window.location.href = 'login.html';" >Log in</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<script>
+    const passwordInput = document.querySelector("#signupPassword")
+    const passwordConfirmInput = document.querySelector("#signupConfirmPassword")
+    const passwordVisibility = document.querySelector("#eyePassword")
+    const passwordConfirmVisibility = document.querySelector("#eyeConfirmPassword")
+
+    passwordVisibility.addEventListener("click", function(){
+        this.classList.toggle("fa-eye-slash")
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
+        passwordInput.setAttribute("type", type)
+    })
+
+    passwordConfirmVisibility.addEventListener("click", function(){
+        this.classList.toggle("fa-eye-slash")
+        const type = passwordConfirmInput.getAttribute("type") === "password" ? "text" : "password"
+        passwordConfirmInput.setAttribute("type", type)
+    })
+</script>
+<script>
+    var password = document.getElementById("signupPassword")
+        , passwordConfirm = document.getElementById("signupConfirmPassword");
+
+    function validatePassword(){
+        if(password.value != passwordConfirm.value) {
+            passwordConfirm.setCustomValidity("Passwords don't match");
+        } else {
+            passwordConfirm.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    passwordConfirm.onkeyup = validatePassword;
+</script>
+<script type="text/javascript">
+    $("form").on("submit", function (e) {
+        e.preventDefault();
+    });
+</script>
+</body>
+
+</html>

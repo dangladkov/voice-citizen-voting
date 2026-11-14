@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Voice Platform</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/useraccount.css">
+        <link rel="stylesheet" href="css/navigationpanel.css">
+        <link rel="stylesheet" href="css/voiceelement.css">
+        <script src="webjars/jquery/3.6.4/jquery.js"></script>
+        <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+        <script src="lib/hashing.js"></script>
+    <!--    <script src="lib/signup.js"></script>-->
+        <script src="lib/userData.js"></script>
+        <script src="lib/cookienator.js"></script>
+        <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+        <script>$(function(){
+            $("#navigationBar").load("navigationpanel.html")
+            $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+        })</script>
+    </head>
+
+    <body onload="currentUserName(); currentUserNameUserpage()">
+        <div class="userPage">
+            <div class="navbarWindow">
+                <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+                </nav>
+            </div>
+
+            <div class="userCard rounded-4 shadow bg-body-tertiary rounded">
+                <div class="userGrid">
+                    <div class="userFirstName">
+                        <label class="form-label fw-bold" id="userFirstName">Name</label>
+                    </div>
+                    <div class="userLastName">
+                        <label class="form-label fw-bold" id="userLastName">Surname</label>
+                    </div>
+                    <div class="userPoints">
+                        <label class="form-label fw-lighter" id="points">000</label>
+                    </div>
+                    <div class="userPointsLabel">
+                        <label class="form-label">POINTS</label>
+                    </div>
+                </div>
+                <br><br>
+
+            </div>
+
+            <div class="userInfo rounded-4 shadow bg-body-tertiary rounded">
+                <label class="form-label userInfoPhone">Phone number</label><br>
+                <div class="row userAccountRow">
+                    <div class="col-auto userAccountCol">
+                        <input class="form-control" id="userPhoneNum" oninput="phoneFieldChange()">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto userAccountCol">
+                        <button type="button" class="btn btn-outline-secondary mb-3" id="phoneNumBtn" style="visibility: hidden" onclick="updateAccountData(0)">Change</button>
+                    </div>
+                </div>
+
+                <label class="form-label userInfoEmail">Email</label><br>
+                <div class="row userAccountRow">
+                    <div class="col-auto userAccountCol">
+                        <input class="form-control" id="userEmail" oninput="emailFieldChange()">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto userAccountCol">
+                        <button type="button" class="btn btn-outline-secondary mb-3" id="emailBtn" style="visibility: hidden" onclick="updateAccountData(1)">Change</button>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-auto userAccountCol">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="anonymousCheck">
+                            <label class="form-check-label" for="anonymousCheck">Anonymous user</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="mobileNavigationBar"></div>
+    <script>
+        function phoneFieldChange() {
+            document.getElementById("phoneNumBtn").style.visibility = "visible";
+        }
+        function emailFieldChange() {
+            document.getElementById("emailBtn").style.visibility = "visible";
+        }
+    </script>
+    </body>
+</html>

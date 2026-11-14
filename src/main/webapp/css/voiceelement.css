@@ -1,0 +1,94 @@
+body {
+    background-color: #deefeb;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-body-tertiary {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn-outline-warning {
+    --bs-btn-hover-color: #fff;
+}
+
+/* Custiom filled button */
+.btn-voice {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #544c41;
+    --bs-btn-bg: #ffd0a0;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-color: #544c41;
+    --bs-btn-hover-bg: #d9b087;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-color: #38322b;
+    --bs-btn-active-bg: #b69371;
+    --bs-btn-active-border-color: transparent;
+}
+
+.btn-voice-primary {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #214443;
+    --bs-btn-bg: #0cdad4;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-color: #214443;
+    --bs-btn-hover-bg: #0abab5;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-color: #193332;
+    --bs-btn-active-bg: #08938f;
+    --bs-btn-active-border-color: transparent;
+}
+
+.btn-voice-danger {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #3b2c1f;
+    --bs-btn-bg: #ffa153;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-color: #3b2c1f;
+    --bs-btn-hover-bg: #d58745;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-color: #2f2319;
+    --bs-btn-active-bg: #ad6e38;
+    --bs-btn-active-border-color: transparent;
+}
+
+/* Custom outline button */
+.btn-voice-outline {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #544c41;
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: #ffd0a0;
+    --bs-btn-hover-color: #544c41;
+    --bs-btn-hover-bg: #ffd0a0;
+    --bs-btn-hover-border-color: #ffd0a0;
+    --bs-btn-active-color: #544c41;
+    --bs-btn-active-bg: #b69371;
+    --bs-btn-active-border-color: #b69371;
+}
+
+/* Custom navbar outline button */
+.btn-voice-navbar {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #544c41;
+    --bs-btn-bg: #ffd0a0;
+    --bs-btn-border-color: #544c41;
+    --bs-btn-hover-color: #544c41;
+    --bs-btn-hover-bg: #d9b087;
+    --bs-btn-hover-border-color: #544c41;
+    --bs-btn-active-color: #38322b;
+    --bs-btn-active-bg: #b69371;
+    --bs-btn-active-border-color: #544c41;
+}
+
+/* Custom tag badge */
+.text-bg-primary {
+    background-color: #0abab5 !important;
+}
+
+.projectTypeBadge {
+    background-color: #ffa153 !important;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}

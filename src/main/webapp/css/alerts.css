@@ -1,0 +1,11 @@
+.warningAlertLocation {
+    position: fixed;
+    top: 65px;
+    left: 2%;
+    width: 96%;
+    z-index: 69420;
+}
+
+.alert{
+    display: none;
+}

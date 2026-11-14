@@ -1,0 +1,65 @@
+.signupGrid {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "panel";
+    grid-template-columns: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    place-items: center;
+}
+
+.signupPanel {
+    width: 40%;
+    height: 97%;
+    grid-area: panel;
+    background-color: white;
+    padding: 20px;
+}
+
+.fa-eye{
+    position: absolute;
+    top: 62%;
+    right: 8%;
+    cursor: pointer;
+    color: lightgray;
+}
+
+/* Phone resize */
+@media (max-width: 1035px) {
+    .signupPanel {
+        width: 50%;
+    }
+}
+
+@media (max-width: 790px) {
+    .signupPanel {
+        width: 60%;
+    }
+}
+
+@media (max-width: 660px) {
+    .signupPanel {
+        width: 70%;
+    }
+}
+
+@media (max-width: 565px) {
+    .signupPanel {
+        width: 80%;
+    }
+}
+
+@media (max-width: 495px) {
+    .signupPanel {
+        width: 90%;
+    }
+}
+
+/* Phone resize */
+@media screen and (max-width: 800px) {
+    .signupPanel {
+        height: 640px;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="css/styles_shopitem.css">
+  <link rel="stylesheet" href="css/navigationpanel.css">
+  <link rel="stylesheet" href="css/voiceelement.css">
+  <script src="webjars/jquery/3.6.4/jquery.js"></script>
+  <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+  <script src="lib/userData.js"></script>
+  <script src="lib/cookienator.js"></script>
+  <script src="lib/shopitem.js"></script>
+  <script src="lib/shopmanagement.js"></script>
+  <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+  <script>$(function(){
+    $("#navigationBar").load("navigationpanel.html")
+    $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+  })</script>
+</head>
+
+<body onload="currentUserName(); receiveBenefit()">
+
+<div class="main">
+  <div class="navbarWindow">
+    <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+    </nav>
+  </div>
+
+  <div id="mobileNavigationBar"></div>
+
+  <div class="left-side">
+      <div id="productCarousel" class="carousel slide shadow">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+          <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="overlay-image" style="background-image: url(./images/empty.jpg);"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="overlay-image" style="background-image: url(./images/empty.jpg);"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="overlay-image" style="background-image: url(./images/t-shirt.jpeg);"></div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+  </div>
+
+  <div class="item-information" id="benefitInfo">
+  </div>
+
+</div>
+</body>
+</html>

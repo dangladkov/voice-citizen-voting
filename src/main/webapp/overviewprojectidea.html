@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voice Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <script src="webjars/jquery/3.6.4/jquery.js"></script>
+    <script src="webjars/js-cookie/3.0.1/js.cookie.js"></script>
+    <script src="lib/hashing.js"></script>
+    <script src="lib/cookienator.js"></script>
+    <link rel="stylesheet" href="css/overviewprojectidea.css">
+    <link rel="stylesheet" href="css/navigationpanel.css">
+    <link rel="stylesheet" href="css/voiceelement.css">
+    <script src="lib/userData.js"></script>
+    <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/project.js"></script>
+    <script src="lib/ideasarchive.js"></script>
+
+    <script>$(function(){
+        $("#navigationBar").load("navigationpanel.html")
+        $("#mobileNavigationBar").load("mobilenavigationpanel.html")
+    })</script>
+</head>
+
+<body onload="currentUserName()">
+
+<!--Navigation through the different main pages-->
+<div class="navbarWindow">
+    <nav class="mainNavbar navbar fixed-top navbar-expand-sm shadow-sm" id="navigationBar">
+    </nav>
+</div>
+
+<div id="mobileNavigationBar"></div>
+
+<div class = project-and-ideas>
+    <div class = "projects shadow">
+        <div class = projects-header>
+            <b>Project overview</b>
+        </div>
+        <br>
+        <table class="table" style="text-align: center">
+            <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Project</th>
+                <th scope="col">Status</th>
+                <th scope="col">Modify</th>
+            </tr>
+            </thead>
+            <tbody id="listList">
+            <script>loopAllProjects()</script>
+
+
+
+            </tbody>
+        </table><br>
+        <button class="btn btn-voice" onclick="window.location.href = 'submitproject.html';" style="margin-left: 10px">Add project</button>
+    </div>
+
+    <div class = "ideas shadow">
+            <div class = projects-header>
+                <b>Ideas overview</b>
+            </div>
+        <br>
+        <table class="table" style="text-align: center">
+            <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Idea</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody id="listListIdeas">
+            <script>loopAllIdeas()</script>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+</body>
+</html>
