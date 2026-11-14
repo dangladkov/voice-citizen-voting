@@ -7,7 +7,7 @@ Voice is a citizen voting platform that my team built for a client. The client w
 Client project, Technical Computer Science, University of Twente · module 4, May to July 2023 · team of 6
 
 > [!NOTE]
-> This is the team's code from our last commit on 30/06/2023, with five files changed so it runs locally the way it ran in 2023. The photos in the pages aren't included, so a local run shows empty frames where the screenshots below have pictures.
+> This is our code from the last commit on 30/06/2023, with five files changed so it runs locally the way it ran in 2023. The photos in the pages aren't included, so a local run shows empty frames where the screenshots below have pictures.
 
 ## Demo
 
@@ -27,7 +27,7 @@ The Vote button on a support-or-oppose project still opens nothing, as it did in
 
 ## My part
 
-I made 136 of the team's 695 commits. I built the main page with the project cards and the voting windows (the steps through a project's questions and the map in each window), the submit-idea and review-idea pages with their input checks, and the form where an admin adds questions and answers to a project. I also built the leaderboard, the account page with the anonymous switch, the login and sign-up pages with the password rules, the news pages, the navigation bar on every page and the shared stylesheet with Voice's colours and buttons. On the last day I made the pages work on a phone.
+I made 136 of our 695 commits. I built the main page with the project cards and the voting windows (the steps through a project's questions and the map in each window), the submit-idea and review-idea pages with their input checks, and the form where an admin adds questions and answers to a project. I also built the leaderboard, the account page with the anonymous switch, the login and sign-up pages with the password rules, the news pages, the navigation bar on every page and the shared stylesheet with Voice's colours and buttons. On the last day I made the pages work on a phone.
 
 ![Four phone screenshots side by side](assets/s3-phone.png)
 
@@ -39,18 +39,18 @@ Of the other five, one set up the project and built most of the backend (the RES
 |---|---|
 | [`src/main/webapp/`](src/main/webapp) | The pages, their scripts in `lib/`, the stylesheets in `css/` and the icons |
 | [`src/main/java/voiceapp/`](src/main/java/voiceapp) | The REST API and the DAO classes, one package per feature |
-| [`src/main/test/`](src/main/test) | The team's DAO tests, which need a database and sit outside Maven's test folder, so `mvn package` doesn't run them |
+| [`src/main/test/`](src/main/test) | Our DAO tests, which need a database and sit outside Maven's test folder, so `mvn package` doesn't run them |
 | [`db/schema.sql`](db/schema.sql) | The database schema |
 | [`db/seed.py`](db/seed.py) | Fills a local install with demo citizens, projects, ideas, news and shop items |
 | [`pom.xml`](pom.xml) | The Maven build |
 | [`assets/`](assets) | The images in this README |
 
-I rebuilt the schema from the queries in the DAO classes, because the team's database lived on the university's server. The five changed files are `DBManager.java`, which connects to a local database instead of the university's, `FileRepo.java`, which saves uploads to `/opt/voice-files/`, `web.xml`, which registers the API, JSON and file uploads with Jersey, `index.js`, which now reads the finished projects' ids the way the API returns them, and `index.css`, where current Chrome needs the main photo pinned to the top left.
+I rebuilt the schema from the queries in the DAO classes, because our database lived on the university's server. The five changed files are `DBManager.java`, which connects to a local database instead of the university's, `FileRepo.java`, which saves uploads to `/opt/voice-files/`, `web.xml`, which registers the API, JSON and file uploads with Jersey, `index.js`, which now reads the finished projects' ids the way the API returns them, and `index.css`, where current Chrome needs the main photo pinned to the top left.
 
 ## What's not here
 
-- The photos the pages show. The team's README credits Unsplash, but several look AI-generated or like stock photos, so their licence isn't clear.
-- The team's database on the university's server and everything in it.
+- The photos the pages show, which were stock photos and images we generated with AI in early 2023. The stock photos aren't ours to publish, so I left all of them out.
+- Our database on the university's server and everything in it.
 - The sprint reports, the changelog and the design documents, which carry our student numbers.
 - IDE settings and uploaded files.
 
@@ -87,5 +87,7 @@ It needs Linux or WSL with Java 17, Maven, PostgreSQL 14, Tomcat 10.1 and Python
    ```
 
 5. Open http://localhost:8080/login.html and log in as `admin@voice.local` with the password in `db/seed.py`.
+
+<br><br>
 
 Empower your voice! Unleash your potential!
