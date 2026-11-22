@@ -37,7 +37,7 @@ Of the other five, one set up the project and built most of the backend (the RES
 
 | File | Purpose |
 |---|---|
-| [`src/main/webapp/`](src/main/webapp) | The pages, their scripts in `lib/`, the stylesheets in `css/` and the icons |
+| [`src/main/webapp/`](src/main/webapp) | The pages, their scripts in `lib/` and the stylesheets in `css/` |
 | [`src/main/java/voiceapp/`](src/main/java/voiceapp) | The REST API and the DAO classes, one package per feature |
 | [`src/main/test/`](src/main/test) | Our DAO tests, which need a database and sit outside Maven's test folder, so `mvn package` doesn't run them |
 | [`db/schema.sql`](db/schema.sql) | The database schema |
