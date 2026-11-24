@@ -1,4 +1,4 @@
-![A project card and a voting question from Voice over a sky fading into a sunset sea](assets/banner.png)
+![VOICE in script over a dusk sky and sea, next to a tilted stack of four cards: an idea form, a project card with +30, a card with +100 points and a Support or Oppose vote](assets/banner.png)
 
 # Voice
 
@@ -11,7 +11,7 @@ Client project, team of 6, University of Twente • Data & Information module (4
 
 ## Results / Demo
 
-![Voice's pages one after another: the main page and its projects, a vote and its questions, an idea being submitted and reviewed, the leaderboard, news, login and sign-up](assets/pages.gif)
+![A citizen opens the underground aquarium project from the main page, scrolls down to its map, picks an answer to each of its two questions and gets a confirmation that the response was submitted](assets/voting.gif)
 
 We built Voice in four sprints, and at the hand-in it ran on a hosted server. We presented it to the client on 06/07/2023.
 
@@ -27,7 +27,7 @@ An admin edits the idea where needed and publishes it as a project with a voting
 
 A citizen opens a project from the main page, sees its photos and map and answers its questions one at a time. The server turns away a second vote on the same project and stores one row per answer. Finished projects show their results on the main page.
 
-![Four cards joined by arrows, two under a Frontend tab and two under a Backend tab](assets/s2-vote-flow.png)
+![Three screenshots: a citizen's idea form with its address pinned on a map, the admin's form with the deadline, categories and 30 points filled in, and the main page where the idea now shows as a project card](assets/idea-to-project.png)
 
 The leaderboard shows the 10 citizens with the most points, and the shop lists benefits with their price in points. Anyone can switch to anonymous on their account page, and `LeaderboardDao.java` then shows them as "Anonymous".
 
@@ -37,7 +37,7 @@ Built with: Java 17, Jakarta Servlet 6.0.0, Jersey 3.1.1, Jackson 2.15.0, bcrypt
 
 I made 136 of our 695 commits. I built the main page with the project cards and the voting windows, and the submit-idea and review-idea pages with their input checks and map. I also built the admin's form for a project's questions, the leaderboard, the account page, the login and sign-up pages and the news pages. I made the navigation bar and the shared stylesheet with Voice's colors, and on the last day I made the pages work on a phone.
 
-![Four phone screenshots side by side](assets/s3-phone.png)
+![A tilted wall of 15 Voice pages, with the main page, the idea form and the shop in the middle and the admin and account pages around them](assets/pages.png)
 
 In the rest of the team, one set up the project and built most of the backend, and one wrote the data layer and its tests. Two connected the pages to the API, and one built the admin pages for the shop and the users.
 
